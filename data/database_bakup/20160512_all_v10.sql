@@ -1,0 +1,7 @@
+INSERT INTO cms_file VALUES('2','20160419104923_83.jpg','pic02.jpg','data/attachment/201604/20160419104923_83.jpg','jpg','64934','2016-04-19 10:49:23')
+INSERT INTO cms_file VALUES('3','20160422115059_72.jpg','pic05.jpg','data/attachment/201604/20160422115059_72.jpg','jpg','50796','2016-04-22 11:50:59')
+INSERT INTO cms_file VALUES('4','20160422115141_37.jpg','pic06.jpg','data/attachment/201604/20160422115141_37.jpg','jpg','54604','2016-04-22 11:51:41')
+INSERT INTO cms_file VALUES('5','20160422115215_77.jpg','pic07.jpg','data/attachment/201604/20160422115215_77.jpg','jpg','43123','2016-04-22 11:52:15')
+INSERT INTO cms_file VALUES('6','20160422115250_86.jpg','pic08.jpg','data/attachment/201604/20160422115250_86.jpg','jpg','29026','2016-04-22 11:52:50')
+INSERT INTO cms_file VALUES('7','20160422115556_81.jpg','pic09.jpg','data/attachment/201604/20160422115556_81.jpg','jpg','44184','2016-04-22 11:55:56')
+INSERT INTO cms_file VALUES('8','20160422115618_24.jpg','pic10.jpg','data/attachment/201604/20160422115618_24.jpg','jpg','68111','2016-04-22 11:56:18')

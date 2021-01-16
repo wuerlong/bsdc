@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<link rel="stylesheet" type="text/css" href="css/base.css" />
+<link rel="stylesheet" type="text/css" href="css/common.css"/>
+<title>预约点餐</title>
+</head>
+<body>
+<!--loading-->
+<div class="loading-2">
+	<i></i> 
+	<i></i> 
+	<i></i> 
+	<i></i> 
+	<i></i> 
+</div>
+
+<!--number:1-->
+<section class="step step_1">
+	<div class="step_1_btn btn">立即加入	</div>
+</section>
+
+<!--number:2 upload image-->
+<section class="step step_2">
+	<div class="z_photo">
+    	<section class="z_file fl">
+            <img src="img/02_img.jpg" class="add-img">
+            <input type="file" name="file" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple />
+        </section>
+    </div>
+	<div class="mask works-mask z_mask">
+	    <div class="mask-content z_alert">
+	        <p class="del-p two-txt-cut">确定要删除该图吗？</p>
+	        <p class="check-p"><span class="wsdel-no z_cancel">取消</span><span class="del-com wsdel-ok z_sure">确定</span></p>
+	    </div>
+	</div>
+	<div class="step_2_btn btn btn-disabled">点击上传</div>
+</section>
+
+<!--number:3 register-->
+<section class="step step_3">
+	<div class="logo"><img src="img/logo.png"/></div>
+	<div class="register">
+		<div class="hang">
+			<span>·</span>
+			<input type="text" class="username" placeholder="请输入您的姓名">
+		</div>
+		<div class="hang">
+			<span>·</span>
+			<select name="sex" class="sex">
+				<option value="0">请选择您的性别</option>
+				<option value="1">男</option>
+				<option value="2">女</option>
+			</select>
+		</div>
+		<div class="hang">
+			<span>·</span>
+			<input type="text" maxlength="11" class="mobile" placeholder="请输入您的手机号码">
+		</div>
+		<div class="hang">
+			<div class="register_btn btn">申请加入</div>
+		</div>
+	</div>
+</section>
+<section class="step step_4">
+	<div class="eat">
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	</div>
+</section>
+
+<!--number:5 The result of the lottery-->
+<section class="step step_5">
+	<div class="part1">
+		<p>天降福祉，<br>98元意犹未尽海胆饭券请您笑纳</p>
+		<div class="receive_btn btn">立即领取</div>
+	</div>
+	<div class="part2">
+		<p>海胆痴，你来晚啦，<br>券被领完了哦~</p>
+		<div class="share_btn btn">立即分享</div>
+	</div>
+</section>
+
+<!--number:6 recieve ticket-->
+<section class="step step_6">
+	<div class="ticket">
+		<img src="img/ticket.png"/>
+		<div class="redeem_code">YX8086CB0540918</div>
+		<div class="QR_code">
+			
+		</div>
+		<div class="ticket_btn btn">独乐不如众乐</div>
+	</div>
+</section>
+
+<!--share tips-->
+<div class="share">
+	<img src="img/share.png">
+</div>
+<div class="mask_box">
+    <div class="box0"></div>
+</div>
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/base.js"></script>
+<script src="js/imgUp.js"></script>
+<script type="application/javascript">
+$(function(){
+	setTimeout(function(){
+		$(".loading-2").hide();
+		$(".step_1").show();
+		$(".step_1_btn").click(function(){
+			$(".step_1").hide();
+			$(".step_2").show();
+		})
+		$(".step_2").on("click",".btn-active",function(){
+			$(".step_2").hide();
+			$(".step_3").show();
+		})
+		
+		$(".receive_btn").click(function(){
+			$(".step_5").hide();
+			$(".step_6").show();
+		});
+		
+		//share with others 弹框
+	    $(".share_btn,.ticket_btn").click(function(){
+	    	$(".share").show();
+	    })
+	    $(".share").click(function(){
+	    	$(this).hide();
+	    })
+	},2000);
+	
+	//register
+	$(".register_btn").on("click",function(){
+        var username = $('.username').val();        //用户名
+        var sex = $(".sex").val();                  //性别
+        var mobile = $(".mobile").val();            //手机号
+        if(username == "") {
+            alert1("请输入姓名");
+            return;
+        }
+        var reg = /^([\u4E00-\u9FA5A-Za-z]{2,20})+$/;
+        if(!reg.test(username)){
+            alert1("姓名输入有误");
+            return;
+        }
+        if(sex == "0") {
+            alert1("请选择性别");
+            return;
+        }
+        if(mobile == "") {
+            alert1("请输入手机号");
+            return;
+        }
+        if(!(/^1[345789]\d{9}$/.test(mobile))) {
+            alert1("手机号输入有误");
+            return;
+        }
+
+        $(".step_3").hide();
+		//ajax 可删除以下2行代码
+		openLoading();
+		setTimeout(function() {
+            closeLoading();
+            $(".step_5").show();
+        }, 2000)
+    });
+    
+    //error tips
+    function alert1(e) {
+        $(".mask_box").css("display","flex");
+        $(".box0").text(e);
+
+        setTimeout(function() {
+            $(".mask_box").css("display","none");
+        }, 1500)
+    }
+    
+    //loading
+    function openLoading(){
+    	$(".step_4").css("display","flex");
+    }
+    function closeLoading(){
+    	$(".step_4").css("display","none");
+    }
+})
+</script>
+</body>
+</html>
+  

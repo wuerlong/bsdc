@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS cms_notice
+CREATE TABLE `cms_notice` (  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',  `title` varchar(200) NOT NULL COMMENT '公告标题',  `titleen` varchar(500) NOT NULL,  `titlejp` varchar(500) NOT NULL,  `content` text NOT NULL COMMENT '公告内容',  `pic_url` varchar(500) NOT NULL,  `category` varchar(255) NOT NULL,  `state` int(11) DEFAULT NULL,  PRIMARY KEY (`id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8

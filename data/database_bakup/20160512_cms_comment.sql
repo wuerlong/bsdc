@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS cms_comment
+CREATE TABLE `cms_comment` (  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',  `article_id` int(11) NOT NULL,  `userid` int(11) NOT NULL DEFAULT '0',  `username` varchar(255) NOT NULL,  `email` varchar(255) NOT NULL,  `title` varchar(200) NOT NULL,  `content` text NOT NULL,  `reply` text NOT NULL,  `addtime` varchar(255) NOT NULL,  `replytime` varchar(255) NOT NULL,  `state` int(11) NOT NULL DEFAULT '0' COMMENT '状态（1 发布 0 禁用）',  PRIMARY KEY (`id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8
